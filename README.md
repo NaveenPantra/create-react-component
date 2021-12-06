@@ -1,6 +1,46 @@
 # create-react-component
 ReactJs module/directory/files creator.
 
+## About
+This CLI tool will help you to create a file structure and boilerplate for the component.
+
+### Example on how this works
+
+The file `index.js` will be created from a file `index.ejs` and the template engine `ejs` will parse the content based on condition we pass and generate the output.
+
+1. Input `lib/fileData/index.ejs`
+```ejs
+<% if (isTypeSafe) { %>//@flow<% } %>
+import React from 'react'
+<% if (isTypeSafe) { %>import type { Node } from 'react'<% } %>
+import use<%= componentName %>Styles from './index.styles'
+<% if (isTypeSafe) { %>import type { <%= componentName %>Props } from './index.types'<% } %>
+const <%= componentName %> = (props<% if (isTypeSafe) { %>: <%= componentName %>Props<% } %>)<% if (isTypeSafe) { %>: Node<% } %> => {
+  const classes = use<%= componentName %>Styles()
+  return <div className={classes.root}></div>
+}
+export default <%= componentName %>
+```
+
+2. Output `/ComponentName/index.js`
+```JSX
+//@flow
+import React from 'react'
+import type { Node } from 'react'
+
+import useComponentNameStyles from './index.styles'
+import type { ComponentNameProps } from './index.types'
+
+const ComponentName = (props: ComponentNameProps): Node => {
+  const classes = useComponentNameStyles()
+
+  return <div className={classes.root}></div>
+}
+
+export default ComponentName
+
+```
+
 ### Screenshots
 
 1. Enter component name
