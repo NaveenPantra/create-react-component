@@ -4,6 +4,12 @@ ReactJs module/directory/files creator.
 ## About
 This CLI tool will help you to create a file structure and boilerplate for the component.
 
+## Usage
+1. Clone the repo `git clone git@github.com:NaveenPantra/create-react-component.git`.
+2. Navigate to `create-react-component`.
+3. Run `npm link` (this will make `crc` as you command).
+4. Now run `crc` at any place to run the repo.
+
 ### Example on how this works
 
 The file `index.js` will be created from a file `index.ejs` and the template engine `ejs` will parse the content based on condition we pass and generate the output.
